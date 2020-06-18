@@ -6,7 +6,15 @@
       [checked]="todo.completed"
       (change)="handleCompleted()"
     />
-    <label (dblclick)="handleEdit()">{{ todo.name }}</label>
+
+    <!-- added button to handle edits + removed click function from label as per task n.2-->
+
+    <label>{{ todo.name }}</label>
+    <button
+      class="edit-button"
+      (click)="handleEdit()"
+    ></button>
+
     <button
       class="destroy"
       (click)="handleRemove()"

@@ -1,5 +1,7 @@
 <footer class="footer">
   <span class="todo-count"><strong>{{ itemsLeft$ | async }}</strong><span> {{ itemText$ | async }} left</span></span>
-  <!-- removed filters from footer as per instruction n.1 -->
+
+  <!-- removed filters from footer as per task n.1 -->
+
   <button *ngIf="!!(completedCount$ | async)" class="clear-completed" (click)="handleClearCompleted()">Clear completed</button>
 </footer>
