@@ -4,7 +4,7 @@
             <a
                 href="#"
                 [class.selected]="item.key === (filter$ | async)"
-                (click)="handleFilterSelect(item.key)"
+                (click)="filterService.handleFilterSelect(item.key)"
             >
             {{ item.value }}
             </a>

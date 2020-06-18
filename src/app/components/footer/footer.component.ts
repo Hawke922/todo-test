@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectCompletedCount, selectItemsLeft } from '../../store/selectors/todo.selector';
+import { selectCompletedCount, selectItemsLeft, selectAllCount } from '../../store/selectors/todo.selector';
 import { TodoStateInterface } from '../../store/todo-state.interface';
-import { onClearCompleted } from '../../store/actions/todo.action';
+import { FILTERS } from 'src/app/constants/filter';
+import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
   selector: 'app-footer',
@@ -11,19 +12,18 @@ import { onClearCompleted } from '../../store/actions/todo.action';
 })
 export class FooterComponent {
 
-  itemsLeft$: Observable<number>;
+  categoryCounter = [];
 
-  completedCount$: Observable<number>;
+  filter$: Observable<string>;
 
-  itemText$: Observable<string>;
+  constructor(private store: Store<TodoStateInterface>, public filterService: FilterService) {
 
-  constructor(private store: Store<TodoStateInterface>) {
-    this.itemsLeft$ = store.select(selectItemsLeft);
-    this.completedCount$ = store.select(selectCompletedCount);
-    this.itemText$ = store.select((state: TodoStateInterface) => (selectItemsLeft(state) === 1 ? 'item' : 'items'));
-  }
+    this.filter$ = this.store.select('filter');
 
-  handleClearCompleted() {
-    this.store.dispatch(onClearCompleted());
+    this.categoryCounter = [
+      { key: FILTERS.all, value: this.store.select(selectAllCount) },
+      { key: FILTERS.active, value: this.store.select(selectItemsLeft) },
+      { key: FILTERS.completed, value: this.store.select(selectCompletedCount) }
+    ];
   }
 }

@@ -1,7 +1,17 @@
 <footer class="footer">
-  <span class="todo-count"><strong>{{ itemsLeft$ | async }}</strong><span> {{ itemText$ | async }} left</span></span>
+  <ul class="filters">
+    <li *ngFor="let item of categoryCounter">
+        <a
+            href="#"
+            [class.selected]="item.key === (filter$ | async)"
+            (click)="filterService.handleFilterSelect(item.key)"
+        >
+        {{ item.value | async }}
+        </a>
+    </li>
+  </ul>
 
-  <!-- removed filters from footer as per task n.1 -->
+  <!-- moved filters from the footer to the top as per task n.1 -->
 
-  <button *ngIf="!!(completedCount$ | async)" class="clear-completed" (click)="handleClearCompleted()">Clear completed</button>
+  <!-- removed onClearCompleted as per task n.3 -->
 </footer>

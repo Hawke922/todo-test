@@ -3,7 +3,7 @@ import { FILTERS } from 'src/app/constants/filter';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { TodoStateInterface } from 'src/app/store/todo-state.interface';
-import { onFilterSelect } from 'src/app/store/actions/filter.action';
+import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
   selector: 'app-filters',
@@ -18,12 +18,7 @@ export class FiltersComponent {
 
   filter$: Observable<string>;
   
-  constructor(private store: Store<TodoStateInterface>) {
-    this.filter$ = store.select('filter');
+  constructor(private store: Store<TodoStateInterface>, public filterService: FilterService) {
+    this.filter$ = this.store.select('filter');
   }
-
-  handleFilterSelect(filter: string) {
-    this.store.dispatch(onFilterSelect(filter));
-  }
-
 }

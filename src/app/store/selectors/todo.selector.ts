@@ -31,6 +31,11 @@ export const selectCompletedCount = createSelector(
   (todos: TodoInterface[]) => selectCompleted(todos).length
 );
 
+export const selectAllCount = createSelector(
+  (state: TodoStateInterface) => state.todos,
+  (todos: TodoInterface[]) => todos.length
+);
+
 export function selectNotCompleted(todos: TodoInterface[]): TodoInterface[] {
   return todos.filter(todo => !todo.completed);
 }

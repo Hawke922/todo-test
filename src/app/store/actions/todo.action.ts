@@ -11,5 +11,3 @@ export const onRemove = createAction(ACTION_TYPES.remove, (id: string) => ({ id 
 export const onUpdate = createAction(ACTION_TYPES.update, (values: TodoInterface) => ({ values }));
 
 export const onCompleteAll = createAction(ACTION_TYPES.completeAll);
-
-export const onClearCompleted = createAction(ACTION_TYPES.clearCompleted);
