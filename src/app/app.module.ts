@@ -11,9 +11,10 @@ import { ListComponent } from './components/list/list.component';
 import { ItemComponent } from './components/item/item.component';
 import { CopyRightComponent } from './components/copy-right/copy-right.component';
 import { createStore } from './store';
+import { FiltersComponent } from './components/filters/filters.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, ListComponent, ItemComponent, CopyRightComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, ListComponent, ItemComponent, CopyRightComponent, FiltersComponent],
   imports: [
     BrowserModule,
     FormsModule,

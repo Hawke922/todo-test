@@ -1,1 +1,16 @@
 @import '~todomvc-app-css/index.css';
+
+.toggle-all + label {
+	top: -95px;
+}
+
+.filters-container {
+	padding: 10px 15px;
+	height: 20px;
+	text-align: center;
+	font-size: 15px;
+}
+
+.filters-container ul {
+    z-index: 100;
+}
