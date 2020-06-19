@@ -30,7 +30,7 @@ export class ItemComponent implements OnChanges {
   }
 
   handleBlur() {
-    this.update.emit({ id: this.todo.id, name: this.name });
+    this.update.emit({ id: this.todo.id, name: this.name, timeStamp: Number(this.todo.timeStamp) });
     this.editing = false;
   }
 
@@ -39,6 +39,17 @@ export class ItemComponent implements OnChanges {
   }
 
   handleCompleted() {
-    this.update.emit({ id: this.todo.id, completed: !this.todo.completed });
+    this.update.emit({ 
+      id: this.todo.id,
+      completed: !this.todo.completed,
+      finishTime: this.timeTracker(this.todo.timeStamp)
+    });
+  }
+
+  timeTracker(timeStamp) {
+    const timePassed = Date.now() - timeStamp;
+    const minutes = Math.floor(timePassed / 60000);
+    const seconds = ((timePassed % 60000) / 1000).toFixed(0);
+    return minutes + ':' + (+seconds < 10 ? '0' : '') + seconds;
   }
 }

@@ -50,3 +50,21 @@
 .todo-list li:hover .edit-button {
 	display: block;
 }
+
+/* task n.5 => add task time tracking */
+
+.todo-list li .toggle {
+	margin: 12px 0 0 7px;
+}
+
+.todo-list li .toggle + label {
+	background-position: top 12px left 7px;
+}
+
+
+.todo-list li.completed #time-tracker {
+	font-size: 16px;
+	padding-top: 0;
+	color: #4d4d4d;
+	text-decoration: none;
+}
