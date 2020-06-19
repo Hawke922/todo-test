@@ -1,0 +1,13 @@
+<div class="add-todo-container">
+    <input class="edit" [(ngModel)]="newTodoListName" placeholder="Add New Todo List"/>
+    <button class="add-todo" (click)="addTodoList()" >+</button>
+</div>
+<div class=filters-container>
+    <ul class="filters">
+        <li *ngFor="let item of todosArray">
+            <a href="#" (click)="activateList(item.id)">
+            {{ item.name }}
+            </a>
+        </li>
+    </ul>
+</div>

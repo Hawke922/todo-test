@@ -12,9 +12,20 @@ import { ItemComponent } from './components/item/item.component';
 import { CopyRightComponent } from './components/copy-right/copy-right.component';
 import { createStore } from './store';
 import { FiltersComponent } from './components/filters/filters.component';
+import { TodosComponent } from './components/todos/todos.component';
+import { TodosService } from './services/todos.service';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, ListComponent, ItemComponent, CopyRightComponent, FiltersComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ListComponent,
+    ItemComponent,
+    CopyRightComponent,
+    FiltersComponent,
+    TodosComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -24,7 +35,9 @@ import { FiltersComponent } from './components/filters/filters.component';
       logOnly: false
     })
   ],
-  providers: [],
+  providers: [
+    TodosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

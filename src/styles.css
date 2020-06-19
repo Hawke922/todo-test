@@ -24,7 +24,7 @@
 	font-size: 38px;
 }
 
-.todo-list li .edit-button {
+.todo-list li .edit-button, .add-todo {
 	display: none;
 	position: absolute;
 	top: 0;
@@ -39,7 +39,7 @@
 	transition: color 0.2s ease-out;
 }
 
-.todo-list li .edit-button:hover {
+.todo-list li .edit-button:hover, .add-todo:hover {
 	color: #af5b5e;
 }
 
@@ -67,4 +67,16 @@
 	padding-top: 0;
 	color: #4d4d4d;
 	text-decoration: none;
+}
+
+/* task n.6 => create multiple list functionality  */
+.add-todo-container {
+	position: relative;
+}
+
+.add-todo {
+	display: block;
+	right: 10px;
+	margin-bottom: 5px;
+	font-size: 42px;
 }

@@ -1,5 +1,6 @@
 <div id="app">
   <section class="todoapp">
+    <app-todos></app-todos>
     <app-header></app-header>
     <app-filters *ngIf="(todos$ | async).length"></app-filters>
     <app-list *ngIf="(todos$ | async).length"></app-list>
